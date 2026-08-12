@@ -1,5 +1,5 @@
-const API_BASE_URL = "http://localhost:5000/api/v1";
-
+const API_BASE_URL =
+    "https://quivora-backend.onrender.com/api/v1";
 
 // ============================================================
 // START QUIZ
@@ -7,12 +7,14 @@ const API_BASE_URL = "http://localhost:5000/api/v1";
 
 const startQuiz = async (quizId) => {
 
-    const token = localStorage.getItem("quivora_token");
+    const token =
+        localStorage.getItem("quivora_token");
 
     if (!token) {
-        throw new Error("Authentication token not found.");
+        throw new Error(
+            "Authentication token not found."
+        );
     }
-
 
     const response = await fetch(
         `${API_BASE_URL}/attempts/start`,
@@ -30,22 +32,18 @@ const startQuiz = async (quizId) => {
         }
     );
 
-
-    const data = await response.json();
-
+    const data =
+        await response.json();
 
     if (!response.ok) {
-
         throw new Error(
-            data.message || "Unable to start quiz."
+            data.message ||
+            "Unable to start quiz."
         );
-
     }
-
 
     return data;
 };
-
 
 // ============================================================
 // GET QUIZ QUESTIONS
@@ -53,12 +51,14 @@ const startQuiz = async (quizId) => {
 
 const getQuizQuestions = async (attemptId) => {
 
-    const token = localStorage.getItem("quivora_token");
+    const token =
+        localStorage.getItem("quivora_token");
 
     if (!token) {
-        throw new Error("Authentication token not found.");
+        throw new Error(
+            "Authentication token not found."
+        );
     }
-
 
     const response = await fetch(
         `${API_BASE_URL}/attempts/${attemptId}/questions`,
@@ -72,35 +72,36 @@ const getQuizQuestions = async (attemptId) => {
         }
     );
 
-
-    const data = await response.json();
-
+    const data =
+        await response.json();
 
     if (!response.ok) {
-
         throw new Error(
-            data.message || "Unable to fetch quiz questions."
+            data.message ||
+            "Unable to fetch quiz questions."
         );
-
     }
-
 
     return data;
 };
-
 
 // ============================================================
 // SUBMIT QUIZ
 // ============================================================
 
-const submitQuiz = async (attemptId, answers) => {
+const submitQuiz = async (
+    attemptId,
+    answers
+) => {
 
-    const token = localStorage.getItem("quivora_token");
+    const token =
+        localStorage.getItem("quivora_token");
 
     if (!token) {
-        throw new Error("Authentication token not found.");
+        throw new Error(
+            "Authentication token not found."
+        );
     }
-
 
     const response = await fetch(
         `${API_BASE_URL}/attempts/${attemptId}/submit`,
@@ -118,27 +119,22 @@ const submitQuiz = async (attemptId, answers) => {
         }
     );
 
-
-    const data = await response.json();
-
+    const data =
+        await response.json();
 
     if (!response.ok) {
-
         throw new Error(
-            data.message || "Unable to submit quiz."
+            data.message ||
+            "Unable to submit quiz."
         );
-
     }
-
 
     return data;
 };
 
-
 // ============================================================
 // GET QUIZ RESULT
 // ============================================================
-
 
 const getQuizResult = async (attemptId) => {
 
@@ -163,7 +159,8 @@ const getQuizResult = async (attemptId) => {
         }
     );
 
-    const data = await response.json();
+    const data =
+        await response.json();
 
     if (!response.ok) {
         throw new Error(
@@ -175,6 +172,9 @@ const getQuizResult = async (attemptId) => {
     return data;
 };
 
+// ============================================================
+// EXPORT
+// ============================================================
 
 const quizAttemptService = {
     startQuiz,
@@ -182,6 +182,5 @@ const quizAttemptService = {
     submitQuiz,
     getQuizResult,
 };
-
 
 export default quizAttemptService;

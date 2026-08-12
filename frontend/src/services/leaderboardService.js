@@ -1,5 +1,5 @@
-const API_BASE_URL = "http://localhost:5000/api/v1";
-
+const API_BASE_URL =
+    "https://quivora-backend.onrender.com/api/v1";
 
 // ============================================================
 // GET MY LEADERBOARD QUIZZES
@@ -16,7 +16,6 @@ const getMyLeaderboards = async () => {
         );
     }
 
-
     const response = await fetch(
         `${API_BASE_URL}/leaderboard/my`,
         {
@@ -29,24 +28,18 @@ const getMyLeaderboards = async () => {
         }
     );
 
-
     const data =
         await response.json();
 
-
     if (!response.ok) {
-
         throw new Error(
             data.message ||
             "Unable to fetch leaderboards."
         );
-
     }
-
 
     return data;
 };
-
 
 // ============================================================
 // GET LEADERBOARD FOR ONE QUIZ
@@ -67,11 +60,8 @@ const getLeaderboard = async (
         );
     }
 
-
     const response = await fetch(
-
         `${API_BASE_URL}/leaderboard/${quizId}?page=${page}&limit=${limit}`,
-
         {
             method: "GET",
 
@@ -80,39 +70,28 @@ const getLeaderboard = async (
                 Authorization: `Bearer ${token}`,
             },
         }
-
     );
-
 
     const data =
         await response.json();
 
-
     if (!response.ok) {
-
         throw new Error(
             data.message ||
             "Unable to fetch leaderboard."
         );
-
     }
-
 
     return data;
 };
-
 
 // ============================================================
 // EXPORT
 // ============================================================
 
 const leaderboardService = {
-
     getMyLeaderboards,
-
     getLeaderboard,
-
 };
-
 
 export default leaderboardService;

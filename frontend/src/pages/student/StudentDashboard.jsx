@@ -24,7 +24,7 @@ import logo from "../../assets/logo/quivora-logo.png";
 // API BASE URL
 // ============================================================
 
-const API_BASE_URL = "http://localhost:5000/api/v1";
+const API_BASE_URL = "https://quivora-backend.onrender.com/api/v1";
 // ============================================================
 // PROFILE IMAGE URL
 // ============================================================
@@ -46,7 +46,7 @@ const getProfileImageUrl = (profileImage) => {
     // Backend returns:
     // /uploads/profiles/profile-xxx.png
 
-    return `http://localhost:5000${profileImage}`;
+    return `https://quivora-backend.onrender.com${profileImage}`;
 };
 
 

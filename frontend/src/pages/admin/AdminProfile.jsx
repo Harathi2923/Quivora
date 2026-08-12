@@ -65,7 +65,7 @@ const AdminProfile = () => {
             return profileImage;
         }
 
-        return `http://localhost:5000${profileImage}`;
+        return `https://quivora-backend.onrender.com${profileImage}`;
     };
 
     const profileImage = getProfileImageUrl(

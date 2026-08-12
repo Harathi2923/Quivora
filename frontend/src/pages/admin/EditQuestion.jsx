@@ -21,9 +21,9 @@ import logo from "../../assets/logo/quivora-logo.png";
 
 const API_BASE_URL =
     import.meta.env.VITE_API_URL ||
-    "http://localhost:5000/api/v1";
+    "https://quivora-backend.onrender.com/api/v1";
 
-const SERVER_URL = "http://localhost:5000";
+const SERVER_URL = "https://quivora-backend.onrender.com";
 
 // ============================================================
 // COLORS

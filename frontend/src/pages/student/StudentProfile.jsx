@@ -28,7 +28,7 @@ import logo from "../../assets/logo/quivora-logo.png";
 
 
 const API_BASE_URL =
-    "http://localhost:5000/api/v1";
+    "https://quivora-backend.onrender.com/api/v1";
 
 
 const StudentProfile = () => {
@@ -96,7 +96,7 @@ const StudentProfile = () => {
     const getProfileImageUrl = (imagePath) => {
         if (!imagePath) return null;
         if (imagePath.startsWith("http://") || imagePath.startsWith("https://") || imagePath.startsWith("blob:")) return imagePath;
-        return `http://localhost:5000${imagePath}`;
+        return `https://quivora-backend.onrender.comgit add${imagePath}`;
     };
 
     const [profileImage, setProfileImage] =

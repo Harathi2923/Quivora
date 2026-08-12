@@ -87,7 +87,7 @@ const Register = () => {
       // ============================================
 
       const response = await fetch(
-        "http://localhost:5000/api/v1/auth/register",
+        "https://quivora-backend.onrender.com/api/v1/auth/register",
         {
           method: "POST",
 
