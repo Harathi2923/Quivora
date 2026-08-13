@@ -96,7 +96,7 @@ const StudentProfile = () => {
     const getProfileImageUrl = (imagePath) => {
         if (!imagePath) return null;
         if (imagePath.startsWith("http://") || imagePath.startsWith("https://") || imagePath.startsWith("blob:")) return imagePath;
-        return `https://quivora-backend.onrender.comgit add${imagePath}`;
+        return `https://quivora-backend.onrender.com${imagePath}`;
     };
 
     const [profileImage, setProfileImage] =
