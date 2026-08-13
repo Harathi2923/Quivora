@@ -164,7 +164,7 @@ const Register = () => {
 
               <AuthInput
                 label="First Name"
-                placeholder="Eg: Hari"
+                placeholder="Eg: Naveen"
                 value={firstName}
                 onChange={(e) =>
                   setFirstName(e.target.value)
@@ -184,7 +184,7 @@ const Register = () => {
 
               <AuthInput
                 label="Last Name"
-                placeholder="Eg: Puli"
+                placeholder="Eg: Polishetty"
                 value={lastName}
                 onChange={(e) =>
                   setLastName(e.target.value)
@@ -229,7 +229,7 @@ const Register = () => {
 
           <PasswordInput
             label="Password"
-            placeholder="Eg: Harathi@123 (8+ chars, A-Z, a-z, 0-9, @)"
+            placeholder="Eg: Name@123 (8+ chars, A-Z, a-z, 0-9, @)"
             value={password}
             onChange={(e) =>
               setPassword(e.target.value)

@@ -47,11 +47,11 @@ const SERVER_URL =
 // ============================================================
 
 const getProfileImageUrl = (profileImage) => {
-
     if (!profileImage) {
         return null;
     }
 
+    // If database already contains a complete URL
     if (
         profileImage.startsWith("http://") ||
         profileImage.startsWith("https://")
@@ -59,7 +59,24 @@ const getProfileImageUrl = (profileImage) => {
         return profileImage;
     }
 
-    return `${SERVER_URL}${profileImage}`;
+    // Remove accidental leading/trailing spaces
+    const cleanPath = profileImage.trim();
+
+    // If database contains only the filename
+    if (
+        !cleanPath.startsWith("/") &&
+        !cleanPath.startsWith("uploads/")
+    ) {
+        return `${SERVER_URL}/uploads/profiles/${cleanPath}`;
+    }
+
+    // If database contains uploads/profiles/filename
+    if (cleanPath.startsWith("uploads/")) {
+        return `${SERVER_URL}/${cleanPath}`;
+    }
+
+    // If database contains /uploads/profiles/filename
+    return `${SERVER_URL}${cleanPath}`;
 };
 
 
